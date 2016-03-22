@@ -210,3 +210,6 @@ bar {
 		urgent_workspace			$urgent-bg-color			$urgent-bg-color			$text-color
 	}
 }
+
+# Other autostarts
+exec --no-startup-id compton -b
