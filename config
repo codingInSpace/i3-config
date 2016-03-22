@@ -202,6 +202,7 @@ gaps inner 15
 # finds out, if available)
 bar {
 	status_command i3blocks
+	position top
 	colors {
 		background $bg-color
 		separator #757575
