@@ -29,7 +29,7 @@ font xft:Liberation mono 12
 
 ### Custom values
 # Wallpaper
-exec --no-startup-id feh --bg-scale /home/jonathan/.config/i3/wall1.jpg
+exec --no-startup-id feh --bg-scale /home/jonathan/.config/i3/wall2.jpg
 
 # colors variables
 set $bg-color 						#2f343f
@@ -55,17 +55,17 @@ bindsym $mod+Return exec sakura
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+r exec rofi -show run -fullscreen -lines 4 -eh 2 -padding 400 -opacity "75" -bw 0 -bc "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
+bindsym $mod+r exec rofi -show run -fullscreen -lines 4 -eh 2 -padding 400 -bw 0 -bg "argb: cc263238" -fg "argb: ffffffff" -bc "argb: ffffffff" -fg "argb: ffffffff" -hlbg "$bg-color" -hlfg "#9575cd"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -111,16 +111,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1  "
+set $ws2 "2  "
+set $ws3 "3  "
+set $ws4 "4  "
+set $ws5 "5  "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1 
@@ -146,7 +146,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-#assign [class="command"] $ws5
+assign [class="google-chrome-beta"] $ws1
+assign [class="messengerfordesktop"] $ws4
+assign [class="slack"] $ws4
+assign [class="spotify"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -190,6 +193,8 @@ bindsym XF86AudioMute exec amixer set Master toggle
 bindsym $alt+F5 exec xbacklight -dec 5
 bindsym $alt+F6 exec xbacklight -inc 5
 
+# Screenshot
+bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/screenshot-%d%m%Y-%H:%M.jpg 2>/dev/null'
 
 hide_edge_borders both
 
@@ -215,4 +220,4 @@ bar {
 }
 
 # Other autostarts
-exec --no-startup-id compton --config ~/.compton.conf
+exec --no-startup-id compton -b --config /home/jonathan/.config/compton.conf
