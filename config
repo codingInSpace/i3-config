@@ -33,17 +33,19 @@ exec --no-startup-id feh --bg-scale /home/jonathan/.config/i3/wall4.jpg
 
 # colors variables
 set $bg-color 						#2f343f
-set $inactive-bg-color		#2f343f
+set $inactive-bg-color		#85678f
 set $text-color						#f3f4f5
 set $inactive-text-color	#676E7D
 set $urgent-bg-color			#E53935
+set $active-border				#fe8d86
+set $inactive-border			#2f343f
 
 # window colors
 # 												border								background								text											indicator
-client.focused						$bg-color							$bg-color									$text-color								#000000
-client.unfocused					$inactive-bg-color		$inactive-bg-color				$inactive-text-color			#000000
-client.focused_inactive		$inactive-bg-color		$inactive-bg-color				$inactive-text-color			#000000
-client.urgent							$urgent-bg-color			$urgent-bg-color					$text-color								#000000
+client.focused						$active-border				$active-border						$text-color								#000000
+client.unfocused					$inactive-border	 		$inactive-border					$inactive-text-color			#000000
+client.focused_inactive		$inactive-border			$inactive-border					$inactive-text-color			#000000
+client.urgent							$active-border				$active-border						$text-color								#000000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -203,7 +205,7 @@ bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/screenshot-%d%m%Y-%H:%
 hide_edge_borders both
 
 # i3 gaps
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 smart_gaps on
 gaps inner 15
 
@@ -218,7 +220,7 @@ bar {
 
 		#											border								background						text
 		focused_workspace			$bg-color							$bg-color							$text-color
-		inactive_workspace		$inactive-bg-color		$inactive-bg-color		$inactive-text-color
+		inactive_workspace		$bg-color							$bg-color							$inactive-text-color
 		urgent_workspace			$urgent-bg-color			$urgent-bg-color			$text-color
 	}
 }
