@@ -29,7 +29,7 @@ font xft:Liberation mono 12
 
 ### Custom values
 # Wallpaper
-exec --no-startup-id feh --bg-scale /home/jonathan/.config/i3/wall2.jpg
+exec --no-startup-id feh --bg-scale /home/jonathan/.config/i3/wall4.jpg
 
 # colors variables
 set $bg-color 						#2f343f
@@ -49,22 +49,23 @@ client.urgent							$urgent-bg-color			$urgent-bg-color					$text-color								#
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura
+bindsym $mod+Return exec termite 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+r exec rofi -show run -fullscreen -lines 4 -eh 2 -padding 400 -bw 0 -bg "argb: cc263238" -fg "argb: ffffffff" -bc "argb: ffffffff" -fg "argb: ffffffff" -hlbg "argb: aacccccc" -hlfg "#404040"
+bindsym $mod+r exec rofi -show run 
+#bindsym $mod+r exec rofi -show run -fullscreen -lines 4 -eh 2 -padding 400 -bw 0 -bg "argb: cc263238" -fg "argb: ffffffff" -bc "argb: ffffffff" -fg "argb: ffffffff" -hlbg "argb: aacccccc" -hlfg "#404040"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
+bindsym $mod+j focus down
+bindsym $mod+k focus up 
+bindsym $mod+l focus left
 bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
@@ -74,9 +75,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move left
 bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
@@ -86,7 +87,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -146,7 +147,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+c exec chromium
+
 assign [class="google-chrome-beta"] $ws1
+assign [class="chromium"] $ws1
 assign [class="messengerfordesktop"] $ws4
 assign [class="slack"] $ws4
 assign [class="spotify"] $ws5
@@ -166,9 +170,9 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
         bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
