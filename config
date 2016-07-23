@@ -226,4 +226,6 @@ bar {
 }
 
 # Other autostarts
-exec --no-startup-id compton -b --config /home/jonathan/.config/compton.conf
+exec --no-startup-id compton -b --config /home/jonathan/.config/compton/config
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon  
+
